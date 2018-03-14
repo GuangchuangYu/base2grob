@@ -18,25 +18,27 @@ base2grob <- function(x) {
     old.par=par(no.readonly=TRUE)
     on.exit(suppressWarnings(par(old.par, no.readonly=TRUE)))
 
-    plot_fun <- function() grid.draw(x)
+    plot_fun <- function() {        
+        ## taken from cowplot vignette
+        par(xpd = NA, # switch off clipping, necessary to always see axis labels
+            bg = "transparent", # switch off background to avoid obscuring adjacent plots
+            oma = c(2, 2, 0, 0), # move plot to the right and up
+            mgp = c(2, 1, 0) # move axis labels closer to axis
+            )
+
+        grid.draw(x)
+    }
+
     grob <- grid.grabExpr(grid.echo(plot_fun))
-    
     invisible(grob)
 }
+
 
 
 ##' @importFrom grid grid.draw
 ##' @method grid.draw expression
 ##' @export
 grid.draw.expression <- function(x, recording = TRUE) {
-
-    ## taken from cowplot vignette
-    par(xpd = NA, # switch off clipping, necessary to always see axis labels
-        bg = "transparent", # switch off background to avoid obscuring adjacent plots
-        oma = c(2, 2, 0, 0), # move plot to the right and up
-        mgp = c(2, 1, 0) # move axis labels closer to axis
-        )
-
     eval(x)
 }
 
