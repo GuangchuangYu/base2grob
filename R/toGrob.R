@@ -8,6 +8,8 @@
 ##' @importFrom grid grid.grab
 ##' @importFrom grid grid.draw
 ##' @export
+##' @examples
+##' base2grob(~plot(rnorm(10)))
 ##' @author Guangchuang Yu
 base2grob <- function(x) {
     if (!inherits(x, "expression") && !inherits(x, "formula")) {
