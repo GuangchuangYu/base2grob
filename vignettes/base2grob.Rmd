@@ -71,13 +71,17 @@ file using `ggsave()`:
 ```{r}
 library(ggplot2)
 
-f <- tempfile(fileext=".pdf")
+f <- tempfile(fileext = ".pdf")
 f
-ggsave(p1, filename=f)
+ggsave(p1, filename = f)
 file.info(f)$size
 
 ## we can even directly using formula or expression of base plot command inside ggsave
-ggsave(~pie(1:3), filename=f)
+ggsave(~pie(1:3), filename = f)
+file.info(f)$size
+
+## even function is supported
+ggsave(function() plot(sqrt), filename = f)
 file.info(f)$size
 ```
 
