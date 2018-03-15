@@ -7,7 +7,8 @@
 base2grob(x)
 }
 \arguments{
-\item{x}{expression or formula of base plot function call. e.g. expression(pie(1:5)) or ~plot(1:10, 1:10)}
+\item{x}{expression or formula of base plot function call, e.g. expression(pie(1:5)) or ~plot(1:10, 1:10);
+or a function that plots to an R graphics device when called, e.g. function() plot(sqrt)}
 }
 \value{
 grob object

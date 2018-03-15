@@ -8,6 +8,8 @@ Authors@R:  person("Guangchuang", "Yu",
 Description: Convert base plot function call (using expression or formula) to 'grob' object that compatible to the 'grid' ecosystem. With this package, we are able to e.g. using 'cowplot' to align base plots with 'ggplot' objects and using 'ggsave' to export base plot to file.
 Depends: R (>= 3.4.0)
 Imports:
+    graphics,
+    grDevices,
     grid,
     gridGraphics
 Suggests:

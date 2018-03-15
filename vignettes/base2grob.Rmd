@@ -40,11 +40,12 @@ library("base2grob")
 p1 <- base2grob(~barplot(1:10))
 p2 <- base2grob(expression(plot(rnorm(10))))
 p3 <- base2grob(~pie(1:5))
+p4 <- base2grob(function() plot(sin))
 ```
 
 
-`base2grob` function accept base plot function call as `expression` or
-`formula` and will convert the plot to `grob` object, so that it can be
+`base2grob` function accepts base plot function call as `expression` or
+`formula`, or a function that plots to an R graphics device. It will convert the plot to `grob` object, so that it can be
 compatible with `grid` system and related packages.
 
 ## grid
@@ -86,8 +87,7 @@ We can now use `cowplot::plot_grid()` to align base plots.
 
 ```{r fig.width=10, fig.height=6}
 library(cowplot)
-p4 <- qplot(rnorm(10), rnorm(10)) + theme_grey()
 p5 <- base2grob(~image(volcano))
-p6 <- base2grob(~plot(sin))
+p6 <- qplot(rnorm(10), rnorm(10)) + theme_grey()
 plot_grid(p1, p2, p3, p4, p5, p6, ncol=3, labels=LETTERS[1:6])
 ```
