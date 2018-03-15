@@ -1,10 +1,8 @@
 Package: base2grob
 Title: Convert Base Plot to 'grob' Object
-Version: 0.0.1
-Authors@R:  person("Guangchuang", "Yu",
-                  email = "guangchuangyu@gmail.com",
-                  role = c("aut", "cre"),
-                  comment = c(ORCID = "0000-0002-6485-8781"))
+Version: 0.0.2
+Authors@R:  c(person("Guangchuang", "Yu", email = "guangchuangyu@gmail.com", role = c("aut", "cre"), comment = c(ORCID = "0000-0002-6485-8781")),
+              person("Claus O.", "Wilke", email = "wilke@austin.utexas.edu", role = "ctb", comment = "par setting"))
 Description: Convert base plot function call (using expression or formula) to 'grob' object that compatible to the 'grid' ecosystem. With this package, we are able to e.g. using 'cowplot' to align base plots with 'ggplot' objects and using 'ggsave' to export base plot to file.
 Depends: R (>= 3.4.0)
 Imports:
