@@ -1,7 +1,7 @@
 base2grob
 =====
 
-[![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/base2grob)](https://CRAN.R-project.org/package=base2grob) ![](http://cranlogs.r-pkg.org/badges/grand-total/ggplotify?color=green)
+[![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/base2grob)](https://CRAN.R-project.org/package=base2grob) ![](http://cranlogs.r-pkg.org/badges/grand-total/base2grob?color=green)
 
 
 
