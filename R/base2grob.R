@@ -1,23 +1,34 @@
-##' convert base plot to grob object
+##' base2grob
 ##'
-##'
-##' @title base2grob
-##' @param x expression or formula of base plot function call, e.g. expression(pie(1:5)) or ~plot(1:10, 1:10);
-##' or a function that plots to an R graphics device when called, e.g. function() plot(sqrt)
-##' @return grob object
-##' @importFrom gridGraphics grid.echo
-##' @importFrom grid grid.grabExpr
+##' This package is deprecated. Please switch over to using [ggplotify].
+##' @name base2grob
+##' @docType package
+##' @import ggplotify
+NULL
+
+##' @usage NULL
+##' @rdname base2grob
 ##' @export
-##' @examples
-##' base2grob(~plot(rnorm(10)))
-##' @author Guangchuang Yu
-base2grob <- function(x) {
-    old.par=par(no.readonly=TRUE)
-    on.exit(suppressWarnings(par(old.par, no.readonly=TRUE)))
+base2grob <- ggplotify::base2grob
 
-    grid.grabExpr(grid.echo(base_plot_fun(x)))
+
+##' @importFrom grid grid.draw
+##' @method grid.draw expression
+##' @export
+grid.draw.expression <- getFromNamespace("grid.draw.expression", "ggplotify")
+
+##' @method grid.draw formula
+##' @export
+grid.draw.formula <- grid.draw.expression
+
+##' @method grid.draw function
+##' @export
+grid.draw.function <- grid.draw.expression
+
+
+
+.onAttach <- function(...) {
+    message <- "The base2grob package has been deprecated. Please switch over to the ggplotify package"
+
+    packageStartupMessage(message)
 }
-
-
-
-
